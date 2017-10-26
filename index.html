@@ -14,19 +14,45 @@
     <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"> 
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" rel="stylesheet"> 
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" rel="stylesheet">  -->
 
     <!-- Custom Fonts -->
     <!-- <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-
+    <link href="https://fonts.googleapis.com/css?family=Creepster" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/stylish-portfolio.css" rel="stylesheet">
 
+<script>
+      function apichucknorris(){
+        var url = "https://api.chucknorris.io/jokes/random"; //
+      $.ajax({
+        url: url,
+        method: 'GET',
+      }).done(function(result) {	//connecting to api with ajax and the parameters
+      
+        // remove any div with class of article to not add for each change of category
+      //   $( ".article" ).remove();
+    
+          var res = result;
+          console.log(res);
+          
+          var value = res.value;
+          //var icon = res[icon_url];
+    
+          $(".chucknorris").append(value);
+    
+      }).fail(function(err) {
+        throw err;
+      });
+    }
+</script>
+
+
   </head>
 
-  <body>
+  <body onload="apichucknorris()">
     <!-- Navigation -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle">
       <i class="fa fa-bars"></i>
@@ -67,6 +93,9 @@
         <!-- <h2>Solo-Tech Design</h2> -->
         <p class="lead">We will plan,design and build your site.</p>
         <img class="img-portfolio img-fluid" src="img/logo blue1.png">
+        <p>And now for a fact from the Chuck Norris API</p>
+        <h2 class="chucknorris font-creepster rcolor"></h2>
+        <img src="" class="chuckimg">
       </div>
       <!-- /.container -->
     </section>
