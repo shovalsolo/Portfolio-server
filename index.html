@@ -23,27 +23,7 @@
     <link href="https://fonts.googleapis.com/css?family=Creepster" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/stylish-portfolio.css" rel="stylesheet">
-
-<script>
-      function apichucknorris(){
-        var url = "https://api.chucknorris.io/jokes/random";
-      $.ajax({
-        url: url,
-        method: 'GET',
-      }).done(function(result) {	//connecting to api with ajax and the parameters
-    
-          var res = result;
-          
-          var value = res.value;
-
-          $(".chucknorris").append(value);
-    
-      }).fail(function(err) {
-        throw err;
-      });
-    }
-</script>
-
+    <script src="js/script.js"></script>
 
   </head>
 
